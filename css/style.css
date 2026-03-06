@@ -5,26 +5,26 @@
 /* ── 1. Variables ── */
 :root {
   --bg-primary:    #FFFFFF;
-  --bg-secondary:  #EEF4FF;
+  --bg-secondary:  #F0F9FF;
   --bg-card:       #FFFFFF;
-  --bg-card-hover: #E0EEFF;
-  --gold:          #1565C0;
-  --gold-light:    #42A5F5;
-  --gold-dark:     #0D47A1;
-  --gold-muted:    rgba(21,101,192,0.08);
-  --gold-border:   rgba(21,101,192,0.2);
+  --bg-card-hover: #E0F2FE;
+  --gold:          #0EA5E9;
+  --gold-light:    #38BDF8;
+  --gold-dark:     #0284C7;
+  --gold-muted:    rgba(14,165,233,0.08);
+  --gold-border:   rgba(14,165,233,0.22);
   --white:         #FFFFFF;
-  --off-white:     #F4F8FF;
-  --text-primary:  #1A1A2E;
-  --text-secondary:#4A5568;
+  --off-white:     #F0F9FF;
+  --text-primary:  #0C1A2E;
+  --text-secondary:#475569;
   --text-muted:    #94A3B8;
-  --border:        rgba(0,0,0,0.08);
+  --border:        rgba(0,0,0,0.07);
   --font-heading:  'Playfair Display', Georgia, serif;
   --font-body:     'Inter', system-ui, -apple-system, sans-serif;
   --section-py:    110px;
   --transition:    all 0.35s cubic-bezier(0.4,0,0.2,1);
-  --shadow-card:   0 8px 40px rgba(0,0,0,0.08);
-  --shadow-gold:   0 4px 30px rgba(21,101,192,0.2);
+  --shadow-card:   0 4px 24px rgba(0,0,0,0.06);
+  --shadow-gold:   0 4px 20px rgba(14,165,233,0.3);
   --radius:        6px;
   --radius-lg:     12px;
 }
@@ -227,7 +227,7 @@ h1,h2,h3,h4,h5 {
   display: block;
   width: 24px;
   height: 2px;
-  background: var(--white);
+  background: var(--text-primary);
   transition: var(--transition);
   border-radius: 2px;
 }
@@ -238,7 +238,7 @@ h1,h2,h3,h4,h5 {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(13,71,161,0.98);
+  background: rgba(2,100,164,0.98);
   backdrop-filter: blur(20px);
   z-index: 999;
   flex-direction: column;
@@ -275,16 +275,16 @@ h1,h2,h3,h4,h5 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(21,101,192,0.07) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(21,101,192,0.05) 0%, transparent 60%),
-    linear-gradient(180deg, #FFFFFF 0%, #EEF4FF 100%);
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(14,165,233,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(14,165,233,0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #F0F9FF 100%);
 }
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(21,101,192,0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(21,101,192,0.05) 1px, transparent 1px);
+    linear-gradient(rgba(14,165,233,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14,165,233,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
@@ -689,7 +689,7 @@ h1,h2,h3,h4,h5 {
 .instagram-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(21,101,192,0.85);
+  background: rgba(14,165,233,0.88);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -717,7 +717,7 @@ h1,h2,h3,h4,h5 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(201,168,76,0.05), transparent);
+  background: radial-gradient(ellipse 80% 80% at 50% 50%, rgba(14,165,233,0.06), transparent);
 }
 .cta-inner { position: relative; z-index: 1; text-align: center; max-width: 700px; margin: 0 auto; }
 .cta-inner h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }

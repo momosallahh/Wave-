@@ -4,27 +4,27 @@
 
 /* ── 1. Variables ── */
 :root {
-  --bg-primary:    #080808;
-  --bg-secondary:  #0F0F0F;
-  --bg-card:       #141414;
-  --bg-card-hover: #1C1C1C;
-  --gold:          #C9A84C;
-  --gold-light:    #E4C97A;
-  --gold-dark:     #9A7832;
-  --gold-muted:    rgba(201,168,76,0.12);
-  --gold-border:   rgba(201,168,76,0.25);
+  --bg-primary:    #FFFFFF;
+  --bg-secondary:  #EEF4FF;
+  --bg-card:       #FFFFFF;
+  --bg-card-hover: #E0EEFF;
+  --gold:          #1565C0;
+  --gold-light:    #42A5F5;
+  --gold-dark:     #0D47A1;
+  --gold-muted:    rgba(21,101,192,0.08);
+  --gold-border:   rgba(21,101,192,0.2);
   --white:         #FFFFFF;
-  --off-white:     #F5F2EC;
-  --text-primary:  #EDEBE6;
-  --text-secondary:#9E9E9E;
-  --text-muted:    #606060;
-  --border:        rgba(255,255,255,0.06);
+  --off-white:     #F4F8FF;
+  --text-primary:  #1A1A2E;
+  --text-secondary:#4A5568;
+  --text-muted:    #94A3B8;
+  --border:        rgba(0,0,0,0.08);
   --font-heading:  'Playfair Display', Georgia, serif;
   --font-body:     'Inter', system-ui, -apple-system, sans-serif;
   --section-py:    110px;
   --transition:    all 0.35s cubic-bezier(0.4,0,0.2,1);
-  --shadow-card:   0 8px 40px rgba(0,0,0,0.5);
-  --shadow-gold:   0 4px 30px rgba(201,168,76,0.18);
+  --shadow-card:   0 8px 40px rgba(0,0,0,0.08);
+  --shadow-gold:   0 4px 30px rgba(21,101,192,0.2);
   --radius:        6px;
   --radius-lg:     12px;
 }
@@ -67,7 +67,7 @@ h1,h2,h3,h4,h5 {
   font-family: var(--font-heading);
   line-height: 1.2;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-primary);
 }
 .eyebrow {
   font-family: var(--font-body);
@@ -164,10 +164,11 @@ h1,h2,h3,h4,h5 {
   transition: var(--transition);
 }
 .nav.scrolled {
-  background: rgba(8,8,8,0.95);
+  background: rgba(255,255,255,0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
   padding: 14px 0;
 }
 .nav-inner {
@@ -185,7 +186,7 @@ h1,h2,h3,h4,h5 {
   font-family: var(--font-heading);
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--text-primary);
   letter-spacing: 0.02em;
 }
 .nav-logo-sub {
@@ -237,7 +238,7 @@ h1,h2,h3,h4,h5 {
   display: none;
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(8,8,8,0.98);
+  background: rgba(13,71,161,0.98);
   backdrop-filter: blur(20px);
   z-index: 999;
   flex-direction: column;
@@ -274,16 +275,16 @@ h1,h2,h3,h4,h5 {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(201,168,76,0.06) 0%, transparent 70%),
-    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(201,168,76,0.04) 0%, transparent 60%),
-    linear-gradient(180deg, var(--bg-primary) 0%, #0C0C0C 100%);
+    radial-gradient(ellipse 80% 60% at 60% 40%, rgba(21,101,192,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 50% at 10% 80%, rgba(21,101,192,0.05) 0%, transparent 60%),
+    linear-gradient(180deg, #FFFFFF 0%, #EEF4FF 100%);
 }
 .hero-grid {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    linear-gradient(rgba(21,101,192,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21,101,192,0.05) 1px, transparent 1px);
   background-size: 60px 60px;
   mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 40%, transparent 100%);
@@ -572,7 +573,7 @@ h1,h2,h3,h4,h5 {
   color: var(--bg-primary);
   flex-shrink: 0;
 }
-.testimonial-name { font-size: 0.9rem; font-weight: 600; color: var(--white); }
+.testimonial-name { font-size: 0.9rem; font-weight: 600; color: var(--text-primary); }
 .testimonial-meta { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
 
 /* ── 12. Google Reviews ── */
@@ -604,7 +605,7 @@ h1,h2,h3,h4,h5 {
   align-items: baseline;
   gap: 6px;
 }
-.google-rating-num { font-size: 1.5rem; font-weight: 700; color: var(--white); font-family: var(--font-heading); }
+.google-rating-num { font-size: 1.5rem; font-weight: 700; color: var(--text-primary); font-family: var(--font-heading); }
 .google-rating-stars { display: flex; gap: 3px; }
 .google-rating-stars i { color: #FBBC05; font-size: 0.9rem; }
 .google-reviews-count { font-size: 0.82rem; color: var(--text-muted); }
@@ -631,7 +632,7 @@ h1,h2,h3,h4,h5 {
   flex-shrink: 0;
 }
 .review-info { flex: 1; }
-.review-name { font-size: 0.88rem; font-weight: 600; color: var(--white); }
+.review-name { font-size: 0.88rem; font-weight: 600; color: var(--text-primary); }
 .review-date { font-size: 0.75rem; color: var(--text-muted); }
 .review-stars { display: flex; gap: 3px; margin-bottom: 10px; }
 .review-stars i { color: #FBBC05; font-size: 0.82rem; }
@@ -672,12 +673,12 @@ h1,h2,h3,h4,h5 {
   inset: 0;
   background: linear-gradient(135deg, var(--bg-card), var(--bg-card-hover));
 }
-.instagram-tile:nth-child(1) .instagram-tile-bg { background: linear-gradient(135deg, #1a1205, #2a1e08); }
-.instagram-tile:nth-child(2) .instagram-tile-bg { background: linear-gradient(135deg, #0a1520, #101f2e); }
-.instagram-tile:nth-child(3) .instagram-tile-bg { background: linear-gradient(135deg, #1a1205, #221808); }
-.instagram-tile:nth-child(4) .instagram-tile-bg { background: linear-gradient(135deg, #0f0f0f, #1a1a1a); }
-.instagram-tile:nth-child(5) .instagram-tile-bg { background: linear-gradient(135deg, #0d150d, #121e12); }
-.instagram-tile:nth-child(6) .instagram-tile-bg { background: linear-gradient(135deg, #1a1205, #2a1e08); }
+.instagram-tile:nth-child(1) .instagram-tile-bg { background: linear-gradient(135deg, #c8dff8, #a8c9f0); }
+.instagram-tile:nth-child(2) .instagram-tile-bg { background: linear-gradient(135deg, #d0e8ff, #b8d8ff); }
+.instagram-tile:nth-child(3) .instagram-tile-bg { background: linear-gradient(135deg, #c8dff8, #a8c9f0); }
+.instagram-tile:nth-child(4) .instagram-tile-bg { background: linear-gradient(135deg, #ddeeff, #c8dff8); }
+.instagram-tile:nth-child(5) .instagram-tile-bg { background: linear-gradient(135deg, #d0e8ff, #c0dcf8); }
+.instagram-tile:nth-child(6) .instagram-tile-bg { background: linear-gradient(135deg, #c8dff8, #a8c9f0); }
 .instagram-tile-icon {
   position: relative;
   z-index: 1;
@@ -688,7 +689,7 @@ h1,h2,h3,h4,h5 {
 .instagram-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(201,168,76,0.85);
+  background: rgba(21,101,192,0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -883,7 +884,7 @@ h1,h2,h3,h4,h5 {
 .apt-body { padding: 24px; }
 .apt-price { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: var(--gold); margin-bottom: 4px; }
 .apt-price span { font-size: 0.85rem; font-weight: 400; color: var(--text-muted); font-family: var(--font-body); }
-.apt-name { font-size: 0.95rem; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+.apt-name { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); margin-bottom: 6px; }
 .apt-location { display: flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--text-muted); margin-bottom: 16px; }
 .apt-location i { color: var(--gold); font-size: 0.8rem; }
 .apt-details { display: flex; gap: 16px; margin-bottom: 20px; }
@@ -969,7 +970,7 @@ h1,h2,h3,h4,h5 {
   transition: var(--transition);
 }
 .faq-question:hover { background: var(--bg-card-hover); }
-.faq-question h4 { font-size: 0.95rem; font-weight: 600; color: var(--white); font-family: var(--font-body); }
+.faq-question h4 { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); font-family: var(--font-body); }
 .faq-question i { color: var(--gold); font-size: 0.85rem; transition: var(--transition); flex-shrink: 0; }
 .faq-item.open .faq-question i { transform: rotate(45deg); }
 .faq-answer { display: none; padding: 0 24px 22px; }
@@ -1090,7 +1091,7 @@ h1,h2,h3,h4,h5 {
 .contact-method-icon i { color: var(--gold); font-size: 1.1rem; }
 .contact-method-info { flex: 1; }
 .contact-method-label { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
-.contact-method-value { font-size: 0.95rem; font-weight: 600; color: var(--white); }
+.contact-method-value { font-size: 0.95rem; font-weight: 600; color: var(--text-primary); }
 .contact-method-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 2px; }
 .service-areas-block h4 {
   font-size: 0.75rem;
@@ -1230,4 +1231,72 @@ select { appearance: none; background-image: url("data:image/svg+xml,%3csvg xmln
   .stats-grid { grid-template-columns: 1fr; }
   .stat-item { border-right: none; border-bottom: 1px solid var(--border); }
   .stat-item:last-child { border-bottom: none; }
+}
+
+/* ── 24. Crew / Team Photos Section ── */
+.crew-section { background: var(--bg-secondary); }
+.crew-mosaic {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.crew-photo {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+.crew-photo.wide {
+  grid-column: span 2;
+}
+.crew-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+.crew-photo:hover img { transform: scale(1.04); }
+.crew-photo-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(13,71,161,0.85), transparent);
+  padding: 24px 20px 16px;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  transition: var(--transition);
+}
+.crew-photo:hover .crew-photo-caption { opacity: 1; }
+
+/* Real apartment photos */
+.apt-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.5s ease;
+}
+.apt-card:hover .apt-image img { transform: scale(1.05); }
+
+/* About page real photo */
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 900px) {
+  .crew-mosaic { grid-template-columns: 1fr 1fr; }
+  .crew-photo.wide { grid-column: span 2; }
+}
+@media (max-width: 600px) {
+  .crew-mosaic { grid-template-columns: 1fr; }
+  .crew-photo.wide { grid-column: span 1; }
 }

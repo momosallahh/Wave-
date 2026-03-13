@@ -86,6 +86,10 @@
           <a href="#cleaning" style="display:flex;align-items:center;gap:12px;color:var(--text-secondary);font-size:0.88rem;font-weight:500;transition:var(--transition);" class="service-anchor">
             <i class="fa-solid fa-broom" style="color:var(--gold);font-size:1.1rem;"></i> Monthly Cleaning
           </a>
+          <span style="color:var(--border);">·</span>
+          <a href="#calculator" style="display:flex;align-items:center;gap:12px;color:var(--gold);font-size:0.88rem;font-weight:600;transition:var(--transition);" class="service-anchor">
+            <i class="fa-solid fa-calculator" style="font-size:1.1rem;"></i> Cost Calculator
+          </a>
         </div>
       </div>
     </section>
@@ -196,6 +200,147 @@
           </div>
         </div>
 
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════
+         MOVING COST CALCULATOR
+    ═══════════════════════════════ -->
+    <section class="section calc-section" id="calculator" aria-labelledby="calc-title">
+      <div class="container">
+        <div class="section-header centered animate-on-scroll">
+          <span class="eyebrow">Instant Estimate</span>
+          <h2 class="section-title" id="calc-title">Moving Cost <span class="gold">Calculator</span></h2>
+          <div class="divider centered"></div>
+          <p class="section-subtitle">Get an instant ballpark based on your home size and move details. We price by weight-per-hour — no guesswork.</p>
+        </div>
+
+        <div class="calc-layout animate-on-scroll">
+
+          <!-- LEFT: Inputs -->
+          <div class="calc-inputs">
+
+            <!-- Home Size -->
+            <div class="calc-group">
+              <div class="calc-group-label"><i class="fa-solid fa-house"></i> Home Size</div>
+              <div class="calc-btn-row" id="calc-size">
+                <button class="calc-opt active" data-val="studio">Studio</button>
+                <button class="calc-opt" data-val="1bed">1 Bed</button>
+                <button class="calc-opt" data-val="2bed">2 Bed</button>
+                <button class="calc-opt" data-val="3bed">3 Bed</button>
+                <button class="calc-opt" data-val="4bed">4+ Bed</button>
+              </div>
+              <div class="calc-weight-note" id="calc-weight-note">Approx. <strong>2,000 lbs</strong> of furniture &amp; belongings</div>
+            </div>
+
+            <!-- Crew Size -->
+            <div class="calc-group">
+              <div class="calc-group-label"><i class="fa-solid fa-users"></i> Crew Size</div>
+              <div class="calc-btn-row" id="calc-crew">
+                <button class="calc-opt active" data-val="2">2 Movers</button>
+                <button class="calc-opt" data-val="3">3 Movers</button>
+                <button class="calc-opt" data-val="4">4 Movers</button>
+              </div>
+              <div class="calc-crew-note" id="calc-crew-note">Moves <strong>1,000 lbs/hr</strong> · Rate: <strong>$120/hr</strong></div>
+            </div>
+
+            <!-- Floor / Access -->
+            <div class="calc-group">
+              <div class="calc-group-label"><i class="fa-solid fa-stairs"></i> Floors / Access</div>
+              <div class="calc-btn-row" id="calc-floor">
+                <button class="calc-opt active" data-val="0">Ground / Elevator</button>
+                <button class="calc-opt" data-val="1">1 Flight</button>
+                <button class="calc-opt" data-val="2">2 Flights</button>
+                <button class="calc-opt" data-val="3">3+ Flights</button>
+              </div>
+            </div>
+
+            <!-- Distance -->
+            <div class="calc-group">
+              <div class="calc-group-label"><i class="fa-solid fa-route"></i> Move Distance</div>
+              <div class="calc-btn-row" id="calc-distance">
+                <button class="calc-opt active" data-val="local">&lt; 5 mi</button>
+                <button class="calc-opt" data-val="near">5–15 mi</button>
+                <button class="calc-opt" data-val="mid">15–30 mi</button>
+                <button class="calc-opt" data-val="far">30+ mi</button>
+              </div>
+            </div>
+
+            <!-- Add-ons -->
+            <div class="calc-group">
+              <div class="calc-group-label"><i class="fa-solid fa-plus-circle"></i> Add-ons <span style="font-weight:400;color:var(--text-muted);text-transform:none;letter-spacing:0;">(optional)</span></div>
+              <div class="calc-addons">
+                <label class="calc-addon-item">
+                  <input type="checkbox" id="addon-piano" />
+                  <span class="calc-addon-box"><i class="fa-solid fa-music"></i></span>
+                  <span class="calc-addon-label">Piano<br><small>+500 lbs, +$75</small></span>
+                </label>
+                <label class="calc-addon-item">
+                  <input type="checkbox" id="addon-pooltable" />
+                  <span class="calc-addon-box"><i class="fa-solid fa-table-tennis-paddle-ball"></i></span>
+                  <span class="calc-addon-label">Pool Table<br><small>+800 lbs, +$100</small></span>
+                </label>
+                <label class="calc-addon-item">
+                  <input type="checkbox" id="addon-safe" />
+                  <span class="calc-addon-box"><i class="fa-solid fa-lock"></i></span>
+                  <span class="calc-addon-label">Heavy Safe<br><small>+300 lbs</small></span>
+                </label>
+                <label class="calc-addon-item">
+                  <input type="checkbox" id="addon-packing" />
+                  <span class="calc-addon-box"><i class="fa-solid fa-box"></i></span>
+                  <span class="calc-addon-label">Full Packing<br><small>+2 hrs flat</small></span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- RIGHT: Result -->
+          <div class="calc-result" id="calc-result">
+            <div class="calc-result-inner">
+              <div class="calc-result-label">Your Estimate</div>
+
+              <div class="calc-result-hours">
+                <span class="calc-result-hours-num" id="calc-hours">3.0</span>
+                <span class="calc-result-hours-unit">hrs</span>
+              </div>
+
+              <div class="calc-result-divider"></div>
+
+              <div class="calc-result-cost-label">Estimated Cost</div>
+              <div class="calc-result-cost">
+                <span class="calc-cost-low" id="calc-low">$324</span>
+                <span class="calc-cost-dash">–</span>
+                <span class="calc-cost-high" id="calc-high">$414</span>
+              </div>
+
+              <div class="calc-result-breakdown" id="calc-breakdown">
+                <div class="calc-breakdown-row">
+                  <span>Base weight</span><span id="bd-weight">2,000 lbs</span>
+                </div>
+                <div class="calc-breakdown-row">
+                  <span>Move speed</span><span id="bd-speed">1,000 lbs/hr</span>
+                </div>
+                <div class="calc-breakdown-row">
+                  <span>Estimated hours</span><span id="bd-hours">3.0 hrs</span>
+                </div>
+                <div class="calc-breakdown-row">
+                  <span>Hourly rate</span><span id="bd-rate">$120/hr</span>
+                </div>
+              </div>
+
+              <div class="calc-result-note">
+                <i class="fa-solid fa-circle-info"></i>
+                This is an estimate only. Your flat-rate quote may vary based on exact inventory, packing materials, and access.
+              </div>
+
+              <a href="contact.html" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:20px;">
+                <i class="fa-solid fa-calendar-check"></i> Get My Exact Flat Rate
+              </a>
+            </div>
+          </div>
+
+        </div><!-- end calc-layout -->
       </div>
     </section>
 

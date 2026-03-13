@@ -212,6 +212,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ── Moving Cost Calculator ── */
+  (function initCalc() {
+    if (!document.getElementById('calc-result')) return;
+
+    // ── Data tables ──
+    const WEIGHTS = { studio: 2000, '1bed': 3500, '2bed': 5500, '3bed': 8500, '4bed': 12000 };
+    const WEIGHT_LABELS = { studio: '2,000', '1bed': '3,500', '2bed': '5,500', '3bed': '8,500', '4bed': '12,000' };
+    const CREW = {
+      '2': { lbsPerHr: 1000, rate: 120, label: '1,000 lbs/hr', rateLabel: '$120/hr' },
+      '3': { lbsPerHr: 1500, rate: 165, label: '1,500 lbs/hr', rateLabel: '$165/hr' },
+      '4': { lbsPerHr: 2000, rate: 210, label: '2,000 lbs/hr', rateLabel: '$210/hr' },
+    };
+    const FLOOR_MULT = { '0': 1.0, '1': 1.15, '2': 1.28, '3': 1.42 };
+    const TRAVEL_HRS = { local: 0.5, near: 1.0, mid: 1.5, far: 2.5 };
+    const MINIMUM_HRS = 3;
+
+    // ── State ──
+    let state = { size: 'studio', crew: '2', floor: '0', distance: 'local' };
+
+    // ── Wire up toggle button groups ──
+    ['calc-size', 'calc-crew', 'calc-floor', 'calc-distance'].forEach(groupId => {
+      const group = document.getElementById(groupId);
+      if (!group) return;
+      const key = groupId.replace('calc-', '');
+      group.querySelectorAll('.calc-opt').forEach(btn => {
+        btn.addEventListener('click', () => {
+          group.querySelectorAll('.calc-opt').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          state[key] = btn.dataset.val;
+          recalc();
+        });
+      });
+    });
+
+    // ── Wire up add-on checkboxes ──
+    ['addon-piano', 'addon-pooltable', 'addon-safe', 'addon-packing'].forEach(id => {
+      document.getElementById(id)?.addEventListener('change', recalc);
+    });
+
+    // ── Core calculation ──
+    function recalc() {
+      const crewData  = CREW[state.crew];
+      const baseWeight = WEIGHTS[state.size]
+        + (document.getElementById('addon-piano')?.checked    ? 500 : 0)
+        + (document.getElementById('addon-pooltable')?.checked ? 800 : 0)
+        + (document.getElementById('addon-safe')?.checked     ? 300 : 0);
+
+      const baseHrs   = baseWeight / crewData.lbsPerHr;
+      const floorHrs  = baseHrs * FLOOR_MULT[state.floor];
+      const travelHrs = TRAVEL_HRS[state.distance];
+      const packingHrs = document.getElementById('addon-packing')?.checked ? 2 : 0;
+      const rawHrs    = floorHrs + travelHrs + packingHrs;
+      const totalHrs  = Math.max(rawHrs, MINIMUM_HRS);
+
+      const pianoSurcharge    = document.getElementById('addon-piano')?.checked    ? 75  : 0;
+      const poolSurcharge     = document.getElementById('addon-pooltable')?.checked ? 100 : 0;
+      const baseCost          = totalHrs * crewData.rate + pianoSurcharge + poolSurcharge;
+      const low  = Math.round(baseCost * 0.9  / 5) * 5;
+      const high = Math.round(baseCost * 1.15 / 5) * 5;
+
+      // ── Update DOM ──
+      document.getElementById('calc-hours').textContent = totalHrs.toFixed(1);
+      document.getElementById('calc-low').textContent   = '$' + low.toLocaleString();
+      document.getElementById('calc-high').textContent  = '$' + high.toLocaleString();
+
+      // breakdown
+      document.getElementById('bd-weight').textContent = baseWeight.toLocaleString() + ' lbs';
+      document.getElementById('bd-speed').textContent  = crewData.label;
+      document.getElementById('bd-hours').textContent  = totalHrs.toFixed(1) + ' hrs';
+      document.getElementById('bd-rate').textContent   = crewData.rateLabel;
+
+      // sub-labels
+      const weightNote = document.getElementById('calc-weight-note');
+      if (weightNote) weightNote.innerHTML =
+        'Approx. <strong>' + WEIGHT_LABELS[state.size] + ' lbs</strong> of furniture &amp; belongings';
+
+      const crewNote = document.getElementById('calc-crew-note');
+      if (crewNote) crewNote.innerHTML =
+        'Moves <strong>' + crewData.label + '</strong> · Rate: <strong>' + crewData.rateLabel + '</strong>';
+    }
+
+    recalc(); // run on page load
+  })();
+
   /* ── Parallax hero (subtle) ── */
   const heroBg = document.querySelector('.hero-grid');
   if (heroBg) {
